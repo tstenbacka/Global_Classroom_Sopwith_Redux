@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour {
 
-    float speed = 50.0f;
-
+    float speed = 10.0f;
+    public Transform colParticle;
 	// Use this for initialization
 	void Start () {
 		
@@ -26,11 +26,9 @@ public class Missile : MonoBehaviour {
         if (other.transform.tag != "Player")
         {
             Destroy(gameObject);
-        }
-        if (other.transform.tag=="Building")
-        {
-            Destroy(other.gameObject);
-            GameManager.instance.AddScore(50);
+            Instantiate(colParticle, transform.position, transform.rotation);
+            SoundManager.instance.PlaySoundFarExplosion1();
+            SoundManager.instance.PlaySoundFarExplosion1();
         }
     }
 }

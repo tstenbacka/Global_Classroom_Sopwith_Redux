@@ -5,7 +5,9 @@ using UnityEngine;
 public class Plane : MonoBehaviour {
 
     float speed = 20.0f;
+    public Transform colParticle;
     public GameObject Missile;
+    public GameObject Bullet;
 	// Use this for initialization
 	void Start () {
         
@@ -30,17 +32,33 @@ public class Plane : MonoBehaviour {
             missileRotation.z = transform.rotation.z;
             Instantiate(Missile,transform.position, missileRotation);
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            Quaternion missileRotation;
+            missileRotation = Quaternion.Euler(0, 0, 0);
+            missileRotation.x = transform.rotation.x;
+            missileRotation.z = transform.rotation.z;
+            GameObject spPoint = GameObject.Find("spawnPoint");
+            Instantiate(Bullet, spPoint.transform.position, missileRotation);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag != "Fire")
         {
             Destroy(gameObject);
+            SoundManager.instance.PlaySoundNearExplosion1();
         }
         
         if (other.transform.tag != "Map" && other.transform.tag != "Fire")
         {
             Destroy(other.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(colParticle, transform.position, transform.rotation);
+
     }
 }

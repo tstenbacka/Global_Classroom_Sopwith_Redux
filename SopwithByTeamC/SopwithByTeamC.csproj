@@ -283,16 +283,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Detonator Explosion Framework\Sample Supporting Emitters\DetonatorSprayHelper.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\Detonator.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorCloudRing.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorComponent.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorFireball.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorForce.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorGlow.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorHeatwave.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorLight.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorShockwave.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSmoke.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSound.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSparks.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\System\DetonatorSpray.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\TestScene\DetonatorTest.cs" />
+    <Compile Include="Assets\Detonator Explosion Framework\TestScene\TouchToMouse.cs" />
+    <Compile Include="Assets\Script\Building.cs" />
+    <Compile Include="Assets\Script\Bullet.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\MainCamera.cs" />
     <Compile Include="Assets\Script\Missile.cs" />
     <Compile Include="Assets\Script\Plane.cs" />
+    <Compile Include="Assets\Script\SoundManager.cs" />
     <Compile Include="Assets\TerrainFoW\Samples\GuiAux.cs" />
     <Compile Include="Assets\TerrainFoW\Samples\Test.cs" />
     <Compile Include="Assets\TerrainFoW\Scripts\RTSCam.cs" />
     <Compile Include="Assets\TerrainFoW\Scripts\TerrainFoW.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
     <None Include="Assets\Meso_Ind_Age_WW1_Nieuport_10_Unarmed\documentation - Meso_Ind_Age_WW1_Nieuport_10_Unarmed.txt" />
     <None Include="Assets\Missile\Doc\ReadMe.txt" />
     <None Include="Assets\TerrainFoW\Help\About.txt" />
