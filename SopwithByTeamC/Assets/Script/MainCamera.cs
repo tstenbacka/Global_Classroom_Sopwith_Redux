@@ -16,10 +16,16 @@ public class MainCamera : MonoBehaviour {
 
 
         cameraPosition.x = myPlane.transform.position.x;
-        if(cameraPosition.x>0 && cameraPosition.x<98)
+        if (cameraPosition.x < 0)
         {
-            transform.position = cameraPosition;
+            cameraPosition.x = 0;
         }
+        if (cameraPosition.x > 98)
+        {
+            cameraPosition.x = 98;
+        }
+        
+        transform.position = cameraPosition;
         
 
 	}

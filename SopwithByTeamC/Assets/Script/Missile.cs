@@ -6,9 +6,14 @@ public class Missile : MonoBehaviour {
 
     float speed = 10.0f;
     public Transform colParticle;
-	// Use this for initialization
-	void Start () {
-		
+
+    void Awake()
+    {
+        transform.Rotate(Vector3.down * 90);
+    }
+
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
