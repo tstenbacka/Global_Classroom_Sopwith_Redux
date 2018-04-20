@@ -6,6 +6,11 @@ public class Bullet : MonoBehaviour {
     float speed = 50.0f;
     public Transform colParticle;
     // Use this for initialization
+    void Awake()
+    {
+
+        transform.Rotate(Vector3.down * 90);
+    }
     void Start () {
 		
 	}

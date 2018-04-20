@@ -220,11 +220,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4023643922752702, guid: dfc45d5d79835704da234286da38f90b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 29.137497
+      value: 28.8
       objectReference: {fileID: 0}
     - target: {fileID: 4023643922752702, guid: dfc45d5d79835704da234286da38f90b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.2330818
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4023643922752702, guid: dfc45d5d79835704da234286da38f90b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -307,6 +307,9 @@ MonoBehaviour:
   colParticle: {fileID: 400000, guid: 809320482fb694b6e8149a226202b86a, type: 2}
   Missile: {fileID: 1800600314876760, guid: e53b74497c0a72840aa2df63cc8494a8, type: 2}
   Bullet: {fileID: 1311439665487308, guid: 82c95f62c0685b745b604387f0fdd1ea, type: 2}
+  maxSpeed: 20
+  minSpeed: 20
+  isTakeOff: 0
 --- !u!54 &156279476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -411,7 +414,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 577298746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.4, y: -19.8, z: -20.8}
+  m_LocalPosition: {x: -47.8, y: -20.5, z: -20.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -514,15 +517,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400028, guid: 79a5b154fed2da64e9f1c2f43900013a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.69031
+      value: -19.9
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 79a5b154fed2da64e9f1c2f43900013a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.924927
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 79a5b154fed2da64e9f1c2f43900013a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.500005
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: 79a5b154fed2da64e9f1c2f43900013a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1560,6 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba8bb8638337f5643bed80b4cfc883f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Plane: {fileID: 0}
   scoreText: {fileID: 2135396730}
 --- !u!4 &2099285255
 Transform:
@@ -1641,7 +1645,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score : 0'
+  m_Text: "Score : 0 \nBomb : 10\nLife : 3"
 --- !u!222 &2135396731
 CanvasRenderer:
   m_ObjectHideFlags: 0
