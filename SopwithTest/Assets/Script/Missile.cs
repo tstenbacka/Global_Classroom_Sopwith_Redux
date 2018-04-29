@@ -28,6 +28,15 @@ public class Missile : MonoBehaviour {
         
         if(hit.GetComponent<Score>()!=null && hit.GetComponent<Score>().Equals(shooter))
         {
+            var health = hit.GetComponent<Health>();
+            if (health != null)
+            {
+                if (health.TakeDamage(40) == 1)
+                {
+                    shooter.AddScore(-100);
+                }
+            }
+            Destroy(gameObject);
         }
         else
         {
