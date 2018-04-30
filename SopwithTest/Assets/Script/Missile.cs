@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour {
 
+    
     public Score shooter;
     public Transform collisionParticle;
 
@@ -12,38 +13,19 @@ public class Missile : MonoBehaviour {
         
 
         var hit = collision.gameObject;
-
-        /*
-        var health = hit.GetComponent<Health>();
-        if (health != null)
-        {
-            if (health.TakeDamage(40) == 1)
-            {
-                shooter.AddScore(300);
-            }
-        }
-        //shooter.AddScore(10);
-        Destroy(gameObject);
-        */
         
         if(hit.GetComponent<Score>()!=null && hit.GetComponent<Score>().Equals(shooter))
         {
-            var health = hit.GetComponent<Health>();
-            if (health != null)
-            {
-                if (health.TakeDamage(40) == 1)
-                {
-                    shooter.AddScore(-100);
-                }
-            }
-            Destroy(gameObject);
+            Debug.Log("It's me!");
         }
         else
         {
 
             var health = hit.GetComponent<Health>();
+            Debug.Log(shooter);
             if (health != null)
             {
+                Debug.Log(shooter);
                 if (health.TakeDamage(40) == 1)
                 {
                     shooter.AddScore(300);

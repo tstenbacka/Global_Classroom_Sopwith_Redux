@@ -16,7 +16,7 @@ public class Plane : NetworkBehaviour {
     public Text bombBox;
     
     public float speed = 0.0f;
-    public float rotateSpeed = 10.0f;
+    public float rotateSpeed = 100.0f;
 
     public const int initNumOfBomb = 10;
 
@@ -24,6 +24,7 @@ public class Plane : NetworkBehaviour {
     public const float minSpeed = 20.0f;
     
     public bool isTakeOff = false;
+    public bool isDeath = false;
 
     [SyncVar(hook = "OnChangeBomb")]
     public int numOfBomb;
@@ -34,16 +35,6 @@ public class Plane : NetworkBehaviour {
         {
             numOfBomb = initNumOfBomb;
             CameraFollow.target = this.transform;
-            //Camera.main.transform.position = this.transform.position + this.transform.forward * 30;
-            //Camera.main.transform.LookAt(this.transform.position);
-            //Camera.main.transform.parent = this.transform;
-            //playerCamera.SetActive(true);
-            //this.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = true;
-        }
-        else
-        {
-            //playerCamera.SetActive(false);
-            //this.transform.GetChild(0).gameObject.GetComponent<Camera>().enabled = false;
         }
 	}
 	
@@ -74,14 +65,15 @@ public class Plane : NetworkBehaviour {
 
         if (speed > 20)
             speed = 20;
-
-        if (transform.position.y > 50)
+        
+        if (transform.position.y > 50 && isDeath==false)
         {
-            gameObject.GetComponent<Health>().TakeDamage(100);
+            isDeath = true;
+            CmdKillPlane();
+
         }
 
         float move = speed * Time.deltaTime;
-        //h = h* speed * Time.deltaTime;
         v = v*  Time.deltaTime;
 
         transform.Translate(Vector3.forward * move);
@@ -100,12 +92,31 @@ public class Plane : NetworkBehaviour {
         {
             transform.Rotate(Vector3.forward * 180);
         }
-        //transform.Translate(Vector3.up * v);
     }
 
     public override void OnStartLocalPlayer()
     {
         GetComponent<MeshRenderer>().material.color = Color.blue;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Map" || other.tag == "Building")
+        {
+            if (isDeath == false)
+            {
+                isDeath = true;
+                CmdKillPlane();
+            }
+
+        }
+
+    }
+
+   
+    [Command]
+    void CmdKillPlane()
+    {
+        gameObject.GetComponent<Health>().TakeDamage(100);
     }
 
     [Command]
@@ -127,7 +138,6 @@ public class Plane : NetworkBehaviour {
             var missile = (GameObject)Instantiate(missilePrefab, missileSpawn.position, missileSpawn.rotation);
             missile.GetComponent<Missile>().shooter = gameObject.GetComponent<Score>();
             missile.GetComponent<Rigidbody>().velocity = missile.transform.right * 10;
-
             NetworkServer.Spawn(missile);
             numOfBomb--;
 
@@ -135,12 +145,13 @@ public class Plane : NetworkBehaviour {
         }
     }
 
-
+    
     public void Respawn()
     {
         isTakeOff = false;
         speed = 0.0f;
         numOfBomb = initNumOfBomb;
+        isDeath = false;
     }
 
     void OnChangeBomb(int numOfBomb)

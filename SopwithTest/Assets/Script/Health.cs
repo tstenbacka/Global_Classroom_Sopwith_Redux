@@ -34,10 +34,14 @@ public class Health : NetworkBehaviour {
 
     public int TakeDamage(int amount)
     {
+        Debug.Log("Call TakeDamage");
         if (!isServer)
+        {
             return -1;
+        }
+            
 
-        
+
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
@@ -50,6 +54,7 @@ public class Health : NetworkBehaviour {
             {
                 currentHealth = maxHealth;
                 life--;
+                
                 gameObject.GetComponent<Plane>().Respawn();
                 if (life <= 0)
                 {
@@ -68,14 +73,7 @@ public class Health : NetworkBehaviour {
         }
         
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Map" || other.tag == "Building")
-        {
-            TakeDamage(100);
-        }
-        
-    }
+    
 
     void OnChangeHealth(int currentHealth)
     {
