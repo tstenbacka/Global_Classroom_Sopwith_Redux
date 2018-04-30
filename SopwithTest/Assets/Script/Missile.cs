@@ -13,8 +13,18 @@ public class Missile : MonoBehaviour {
         
 
         var hit = collision.gameObject;
-        
-        if(hit.GetComponent<Score>()!=null && hit.GetComponent<Score>().Equals(shooter))
+        var health = hit.GetComponent<Health>();
+        if (health != null)
+        {
+            if (health.TakeDamage(40) == 1)
+            {
+                shooter.AddScore(300);
+            }
+        }
+        Destroy(gameObject);
+
+        /*
+        if (hit.GetComponent<Score>()!=null && hit.GetComponent<Score>().Equals(shooter))
         {
             Debug.Log("It's me!");
         }
@@ -34,7 +44,7 @@ public class Missile : MonoBehaviour {
             Destroy(gameObject);
 
         }
-        
+        */
     }
 
     void OnDestroy()

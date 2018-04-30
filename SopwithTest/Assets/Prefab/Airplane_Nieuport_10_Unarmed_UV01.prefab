@@ -471,7 +471,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658501772445246}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.02, y: -0.87, z: -0.58}
+  m_LocalPosition: {x: 0.02, y: -1.77, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4598621202098378}
@@ -510,7 +510,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1787916320630550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 1.56, z: 2.29}
+  m_LocalPosition: {x: 0.02, y: 1.56, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4598621202098378}
@@ -653,7 +653,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758299155801692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 330.56354, y: 36.44851, z: 33.543415}
+  m_LocalPosition: {x: -9.5, y: 11.416475, z: -75.222336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224850599076544936}
@@ -1334,8 +1334,9 @@ MonoBehaviour:
   bulletSpawn: {fileID: 4240981882451550}
   bombBox: {fileID: 114364389852616530}
   speed: 0
-  rotateSpeed: 300
+  rotateSpeed: 100
   isTakeOff: 0
+  isDeath: 0
   numOfBomb: 10
 --- !u!114 &114341803958628898
 MonoBehaviour:

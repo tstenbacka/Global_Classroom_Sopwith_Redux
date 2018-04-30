@@ -11,6 +11,19 @@ public class Bullet : MonoBehaviour {
     void OnTriggerEnter(Collider collision)
     {
         var hit = collision.gameObject;
+        var health = hit.GetComponent<Health>();
+        Debug.Log(shooter);
+        if (health != null)
+        {
+            if (health.TakeDamage(10) == 1)
+            {
+
+                Debug.Log(shooter);
+                shooter.AddScore(300);
+            }
+        }
+        Destroy(gameObject);
+        /*
         if (hit.GetComponent<Score>() != null && hit.GetComponent<Score>().Equals(shooter))
         {
             Debug.Log("It's me!");
@@ -31,7 +44,7 @@ public class Bullet : MonoBehaviour {
             }
             Destroy(gameObject);
 
-        }
+        }*/
     }
 
     void OnDestroy()
